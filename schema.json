@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "staticResPath": {
+            "description": "Path to Static Resource Directory",
+            "type": "string"
+        },
+        "excludeList": {
+            "description": "String or list of strings of filenames to exclude from creating a Static Resource XML File for",
+            "anyOf": [{ "type": "array" }, { "type": "string" }]
+        }
+    },
+    "additionalProperties": false
+}

@@ -1,0 +1,35 @@
+{
+    "name": "static-resource-webpack-plugin",
+    "version": "1.0.0",
+    "description": "",
+    "main": "build/index.js",
+    "scripts": {
+        "build": "babel src -d build"
+    },
+    "author": {
+        "name": "Michael Yocca"
+    },
+    "keywords": [
+        "staticresource",
+        "salesforce",
+        "webpack",
+        "plugin"
+    ],
+    "files": [
+        "build"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "schema-utils": "^2.6.4",
+        "xmlbuilder": "^13.0.2"
+    },
+    "peerDependencies": {
+        "webpack": "^4.0.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.8.4",
+        "@babel/preset-env": "^7.8.4",
+        "babel-polyfill": "^6.26.0"
+    }
+}
