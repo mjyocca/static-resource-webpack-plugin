@@ -35,14 +35,23 @@ const divideFiles = files => {
     )
 }
 
-const createFileStats = (files, excludeList) => {
+const excludeFile = (list, fileName) => {
+    let doExclude = false
+    if (list && Array.isArray(list)) {
+        doExclude = list.includes(fileName)
+    }
+    return doExclude
+}
+
+const createFileStats = (files, exclude) => {
     const { assets, resourceXML } = divideFiles(files)
     return assets
         .filter(file => {
             return (
-                resourceXML.includes(
+                !excludeFile(
+                    resourceXML,
                     `${getBaseFileName(file)}.resource-meta.xml`
-                ) === false
+                ) && !excludeFile(exclude, file)
             )
         })
         .map(file => {
@@ -52,9 +61,8 @@ const createFileStats = (files, excludeList) => {
 }
 
 const createXMLFiles = (files, directoryPath) => {
-    const xmlList = []
-    files.forEach(({ file, resourceFileName, mimeType }) => {
-        const mimeTypeProp = mimeType.split('.')[1]
+    return files.map(({ file, resourceFileName, mimeType }) => {
+        const mimeTypeProp = mimeType.substring(1);
         let xml = xmlBuilder
             .create('StaticResource', {
                 encoding: 'utf-8',
@@ -70,13 +78,12 @@ const createXMLFiles = (files, directoryPath) => {
         xml.end({ pretty: true })
         xml = xml.doc().toString({ pretty: true })
 
-        xmlList.push({
+        return {
             file,
             resourceFileName: `${directoryPath}/${resourceFileName}`,
             content: xml,
-        })
+        }
     })
-    return xmlList
 }
 
 module.exports = {

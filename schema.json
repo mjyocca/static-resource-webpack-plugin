@@ -5,6 +5,10 @@
             "description": "Path to Static Resource Directory",
             "type": "string"
         },
+        "cacheControl": {
+            "description": "Default cache control option for every -meta.xml file created",
+            "type": "string"
+        },
         "excludeList": {
             "description": "String or list of strings of filenames to exclude from creating a Static Resource XML File for",
             "anyOf": [{ "type": "array" }, { "type": "string" }]

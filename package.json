@@ -7,7 +7,7 @@
         "build": "babel src -d build"
     },
     "author": {
-        "name": "Michael Yocca"
+        "name": "Michael Yocca @mjyocca"
     },
     "keywords": [
         "staticresource",
@@ -16,7 +16,8 @@
         "plugin"
     ],
     "files": [
-        "build"
+        "build",
+        "schema.json"
     ],
     "license": "MIT",
     "dependencies": {
