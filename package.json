@@ -1,14 +1,16 @@
 {
     "name": "static-resource-webpack-plugin",
     "version": "1.0.0",
-    "description": "",
+    "description": "webpack plugin that reads the static resource directory of your sfdx project and creates the needed xml files required to deploy to salesforce",
+    "author": {
+        "name": "Michael Yocca @mjyocca"
+    },
     "main": "build/index.js",
     "scripts": {
         "build": "babel src -d build"
     },
-    "author": {
-        "name": "Michael Yocca @mjyocca"
-    },
+    "repository": "https://github.com/mjyocca/static-resource-webpack-plugin.git",
+    "bugs": "https://github.com/mjyocca/static-resource-webpack-plugin/issues",
     "keywords": [
         "staticresource",
         "salesforce",

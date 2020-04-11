@@ -10,10 +10,7 @@ const writeFileAsync = (fileName, data) => {
 }
 
 const writeFiles = files => {
-    const writeAllFiles = files.map(({ resourceFileName, content }) => {
-        console.log('writing file ', resourceFileName)
-        return writeFileAsync(resourceFileName, content)
-    })
+    const writeAllFiles = files.map(({ resourceFileName, content }) => writeFileAsync(resourceFileName, content))
     return Promise.all(writeAllFiles).catch(err => {
         console.error(err)
     })
